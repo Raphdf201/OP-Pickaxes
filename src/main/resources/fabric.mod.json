@@ -1,30 +1,31 @@
 {
-	"schemaVersion": 1,
-	"id": "oppickaxes",
-	"version": "${version}",
-	"name": "OP pickaxes",
-	"description": "Some powerful pickaxes with cheap early-game materials",
-	"authors": [
-		"Raphdf201"
-	],
-	"contact": {
-		"homepage": "https://github.com/Raphdf201",
-		"sources": "https://github.com/Raphdf201/OP-Pickaxes"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/oppickaxes/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"net.raphdf201.oppickaxes.OPPickaxes"
-		]
-	},
-	"mixins": [
-		"oppickaxes.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.16.9",
-		"minecraft": "~1.21.4",
-		"java": ">=21"
-	}
+  "schemaVersion": 1,
+  "id": "oppickaxes",
+  "version": "${version}",
+  "name": "OP pickaxes",
+  "description": "Some powerful pickaxes with cheap early-game materials",
+  "authors": [
+    "Raphdf201"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Raphdf201",
+    "sources": "https://github.com/Raphdf201/OP-Pickaxes"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/oppickaxes/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.raphdf201.oppickaxes.OPPickaxes"
+    ]
+  },
+  "mixins": [
+    "oppickaxes.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "minecraft": "~1.21.4",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
 }

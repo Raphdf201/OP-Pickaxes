@@ -7,13 +7,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: setup jdk
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
         java-version: 21
     - name: setup Gradle
       uses: gradle/actions/setup-gradle@v4
+      with:
+        cache-disabled: false
+    - name: make gradlew executable
+      run: chmod +x ./gradlew
     - name: build code and javadoc
       run: ./gradlew clean build javadoc
+    - name: Upload javadoc as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: javadoc
+        path: build/docs/javadoc/
+        if-no-files-found: error
+        overwrite: true

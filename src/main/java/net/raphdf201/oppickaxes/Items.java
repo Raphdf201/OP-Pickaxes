@@ -22,6 +22,12 @@ public class Items {
         register(ItemGroups.TOOLS, DIRT_PICK);
     }
 
+    /**
+     * Register an item in the {@link net.minecraft.registry.Registry}
+     * @param item the item to register
+     * @param id the id of the item
+     * @return registered item
+     */
     public static Item register(Item item, String id) {
         // Create the identifier for the item.
         Identifier itemID = Identifier.of(MOD_ID, id);
@@ -30,6 +36,11 @@ public class Items {
         return Registry.register(Registries.ITEM, itemID, item);
     }
 
+    /**
+     * Register an item in an itemGroup
+     * @param group target group
+     * @param item item to add
+     */
     public static void register(RegistryKey<ItemGroup> group, Item item) {
         ItemGroupEvents.modifyEntriesEvent(group)
                 .register((itemGroup) -> itemGroup.add(item));

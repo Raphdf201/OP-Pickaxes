@@ -1,20 +1,20 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "###",
-        " / ",
-        " / "
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:dirt"
-        },
-        "/": {
-            "item": "minecraft:stick"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    " / ",
+    " / "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:dirt"
     },
-    "result": {
-        "item": "oppickaxes:dirt_pick",
-        "count": 1
+    "/": {
+      "item": "minecraft:stick"
     }
+  },
+  "result": {
+    "item": "oppickaxes:dirt_pick",
+    "count": 1
+  }
 }

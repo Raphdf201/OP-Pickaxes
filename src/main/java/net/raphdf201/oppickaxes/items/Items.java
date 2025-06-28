@@ -15,38 +15,33 @@ import static net.raphdf201.oppickaxes.OPPickaxes.MOD_ID;
 
 public class Items {
     public static final Identifier DIRT_PICK_ID = Identifier.of(MOD_ID, "dirt_pick");
+    public static final Identifier COAL_PICK_ID = Identifier.of(MOD_ID, "coal_pick");
 
-    public static final DirtPickaxeItem DIRT_PICK = DirtPickaxeItem.register(
-            new DirtPickaxeItem(new Item.Settings()
+    public static final Item DIRT_PICK = register(
+            new Item(new Item.Settings()
                     .pickaxe(Tools.dirt, 0, Integer.MAX_VALUE)
                     .registryKey(RegistryKey.of(RegistryKeys.ITEM, DIRT_PICK_ID))
             ),
             DIRT_PICK_ID
     );
 
+    public static final CoalPickaxeItem COAL_PICK = CoalPickaxeItem.register(
+            new CoalPickaxeItem(new Item.Settings()
+                    .pickaxe(Tools.coal, 5, -3)
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, COAL_PICK_ID))
+            ),
+            COAL_PICK_ID
+    );
+
     public static void initialize() {
         register(ItemGroups.TOOLS, DIRT_PICK);
+        CoalPickaxeItem.register(ItemGroups.TOOLS, COAL_PICK);
     }
 
-    /**
-     * Register an item in the {@link net.minecraft.registry.Registry}
-     *
-     * @param item the item to register
-     * @param id   the id of the item
-     * @return registered item
-     */
     public static Item register(Item item, Identifier id) {
-
-        // Register and return the item!
         return Registry.register(Registries.ITEM, id, item);
     }
 
-    /**
-     * Register an item in an itemGroup
-     *
-     * @param group target group
-     * @param item  item to add
-     */
     public static void register(RegistryKey<ItemGroup> group, Item item) {
         ItemGroupEvents.modifyEntriesEvent(group)
                 .register((itemGroup) -> itemGroup.add(item));

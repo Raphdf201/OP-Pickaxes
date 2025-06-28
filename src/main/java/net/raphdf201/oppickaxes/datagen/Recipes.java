@@ -34,6 +34,17 @@ public class Recipes extends FabricRecipeProvider {
                                 hasItem(net.minecraft.item.Items.DIRT),
                                 conditionsFromItem(net.minecraft.item.Items.DIRT))
                         .offerTo(exporter);
+
+                createShaped(RecipeCategory.TOOLS, Items.COAL_PICK)
+                        .pattern("ccc")
+                        .pattern(" s ")
+                        .pattern(" s ")
+                        .input('c', net.minecraft.item.Items.COAL)
+                        .input('s', net.minecraft.item.Items.STICK)
+                        .criterion(
+                                hasItem(net.minecraft.item.Items.COAL),
+                                conditionsFromItem(net.minecraft.item.Items.COAL))
+                        .offerTo(exporter);
             }
         };
     }

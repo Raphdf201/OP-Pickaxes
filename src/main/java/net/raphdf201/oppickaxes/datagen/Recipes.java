@@ -8,8 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.ItemTags;
-import net.raphdf201.oppickaxes.Items;
+import net.raphdf201.oppickaxes.items.Items;
 
 import java.util.concurrent.CompletableFuture;
 

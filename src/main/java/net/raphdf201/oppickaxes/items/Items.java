@@ -1,4 +1,4 @@
-package net.raphdf201.oppickaxes;
+package net.raphdf201.oppickaxes.items;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
@@ -16,8 +16,8 @@ import static net.raphdf201.oppickaxes.OPPickaxes.MOD_ID;
 public class Items {
     public static final Identifier DIRT_PICK_ID = Identifier.of(MOD_ID, "dirt_pick");
 
-    public static final Item DIRT_PICK = register(
-            new Item(new Item.Settings()
+    public static final DirtPickaxeItem DIRT_PICK = DirtPickaxeItem.register(
+            new DirtPickaxeItem(new Item.Settings()
                     .pickaxe(Tools.dirt, 0, Integer.MAX_VALUE)
                     .registryKey(RegistryKey.of(RegistryKeys.ITEM, DIRT_PICK_ID))
             ),

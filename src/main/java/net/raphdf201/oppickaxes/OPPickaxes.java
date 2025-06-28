@@ -1,6 +1,7 @@
 package net.raphdf201.oppickaxes;
 
 import net.fabricmc.api.ModInitializer;
+import net.raphdf201.oppickaxes.items.Items;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

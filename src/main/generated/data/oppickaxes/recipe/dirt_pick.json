@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "d": "minecraft:dirt",
+    "s": "minecraft:stick"
+  },
+  "pattern": [
+    "ddd",
+    " s ",
+    " s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "oppickaxes:dirt_pick"
+  }
+}

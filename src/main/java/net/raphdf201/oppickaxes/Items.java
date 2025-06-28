@@ -15,12 +15,13 @@ import static net.raphdf201.oppickaxes.OPPickaxes.MOD_ID;
 
 public class Items {
     public static final Identifier DIRT_PICK_ID = Identifier.of(MOD_ID, "dirt_pick");
-    public static final Item DIRT_PICK = Registry.register(
-            Registries.ITEM, DIRT_PICK_ID,
+
+    public static final Item DIRT_PICK = register(
             new Item(new Item.Settings()
                     .pickaxe(Tools.dirt, 0, Integer.MAX_VALUE)
                     .registryKey(RegistryKey.of(RegistryKeys.ITEM, DIRT_PICK_ID))
-            )
+            ),
+            DIRT_PICK_ID
     );
 
     public static void initialize() {
@@ -34,12 +35,10 @@ public class Items {
      * @param id   the id of the item
      * @return registered item
      */
-    public static Item register(Item item, String id) {
-        // Create the identifier for the item.
-        Identifier itemID = Identifier.of(MOD_ID, id);
+    public static Item register(Item item, Identifier id) {
 
         // Register and return the item!
-        return Registry.register(Registries.ITEM, itemID, item);
+        return Registry.register(Registries.ITEM, id, item);
     }
 
     /**

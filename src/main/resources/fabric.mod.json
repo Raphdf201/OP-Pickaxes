@@ -17,11 +17,14 @@
   "entrypoints": {
     "main": [
       "net.raphdf201.oppickaxes.OPPickaxes"
+    ],
+    "fabric-datagen": [
+      "net.raphdf201.oppickaxes.datagen.Generator"
     ]
   },
   "mixins": [],
   "depends": {
-    "fabricloader": ">=0.16.9",
+    "fabricloader": ">=0.16.0",
     "minecraft": "~1.21.5",
     "java": ">=21",
     "fabric-api": "*"

@@ -1,5 +1,6 @@
-package net.raphdf201.oppickaxes.materials;
+package net.raphdf201.oppickaxes;
 
+import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.BlockTags;
@@ -9,7 +10,7 @@ import net.minecraft.util.Identifier;
 
 import static net.raphdf201.oppickaxes.OPPickaxes.MOD_ID;
 
-public class Tools {
+public class Materials {
     /**
      * Dirt material, netherite blockTag, low durability and high speed.
      * Hard to enchant, use dirt to repair
@@ -26,9 +27,9 @@ public class Tools {
     public static final ToolMaterial coal = new ToolMaterial(
             TagKey.of(RegistryKeys.BLOCK, Identifier.of(MOD_ID, "coal_pickaxe_mineable")), // Block breaking
             128,                                                                                // Durability
-            4,                                                                                  // Speed
+            3,                                                                                  // Speed
             0,                                                                                  // Attack damage
             1,                                                                                  // Enchantment
-            ItemTags.STONE_TOOL_MATERIALS                                                       // Repair items
+            ItemTags.COALS                                                                      // Repair items
     );
 }

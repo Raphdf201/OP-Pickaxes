@@ -9,7 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
-import net.raphdf201.oppickaxes.materials.Tools;
+import net.raphdf201.oppickaxes.Materials;
 
 import static net.raphdf201.oppickaxes.OPPickaxes.MOD_ID;
 
@@ -19,7 +19,7 @@ public class Items {
 
     public static final Item DIRT_PICK = register(
             new Item(new Item.Settings()
-                    .pickaxe(Tools.dirt, 0, Integer.MAX_VALUE)
+                    .pickaxe(Materials.dirt, 0, Integer.MAX_VALUE)
                     .registryKey(RegistryKey.of(RegistryKeys.ITEM, DIRT_PICK_ID))
             ),
             DIRT_PICK_ID
@@ -27,7 +27,7 @@ public class Items {
 
     public static final CoalPickaxeItem COAL_PICK = CoalPickaxeItem.register(
             new CoalPickaxeItem(new Item.Settings()
-                    .pickaxe(Tools.coal, 5, -3)
+                    .pickaxe(Materials.coal, 5, -3)
                     .registryKey(RegistryKey.of(RegistryKeys.ITEM, COAL_PICK_ID))
             ),
             COAL_PICK_ID

@@ -1,0 +1,38 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+#issueTrackerURL = ""
+license = "Unlicense"
+
+[[mods]]
+modId = "oppickaxes"
+version = "${version}"
+displayName = "OP pickaxes"
+authors = "Raphdf201"
+description = '''
+
+'''
+#logoFile = ""
+
+[[dependencies.oppickaxes]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.oppickaxes]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.5,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.oppickaxes]]
+modId = "architectury"
+type = "required"
+versionRange = "[16.1.4,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "oppickaxes.mixins.json"

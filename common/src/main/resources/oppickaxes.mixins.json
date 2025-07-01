@@ -6,6 +6,7 @@
   "client": [
   ],
   "mixins": [
+    "CoalPickaxeSmelt"
   ],
   "injectors": {
     "defaultRequire": 1

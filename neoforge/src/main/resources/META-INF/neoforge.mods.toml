@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[2,)"
-#issueTrackerURL = ""
+issueTrackerURL = "https://github.com/Raphdf201/OP-Pickaxes/issues"
 license = "Unlicense"
 
 [[mods]]

@@ -1,4 +1,4 @@
-name: Build code and javadoc
+name: Build cod
 
 on: push
 
@@ -20,11 +20,4 @@ jobs:
       - name: make gradlew executable
         run: chmod +x ./gradlew
       - name: build code and javadoc
-        run: ./gradlew clean build javadoc
-      - name: Upload javadoc as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: javadoc
-          path: build/docs/javadoc/
-          if-no-files-found: error
-          overwrite: true
+        run: ./gradlew build

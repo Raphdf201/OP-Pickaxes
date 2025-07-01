@@ -2,13 +2,16 @@ package net.raphdf201.oppickaxes.items;
 
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.core.particles.ParticleTypes;
@@ -56,7 +59,6 @@ public class CoalPickaxeItem extends Item {
         }
     }
 
-    // Static registration helpers
     public static RegistrySupplier<CoalPickaxeItem> register(String name, Supplier<CoalPickaxeItem> item) {
         return ITEMS.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, name), item);
     }

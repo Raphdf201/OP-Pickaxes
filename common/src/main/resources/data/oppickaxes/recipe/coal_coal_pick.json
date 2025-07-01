@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ccc",
+    " s ",
+    " s "
+  ],
+  "key": {
+    "c": "minecraft:coal",
+    "s": "minecraft:stick"
+  },
+  "result": {
+    "id": "oppickaxes:coal_pick",
+    "count": 1
+  }
+}

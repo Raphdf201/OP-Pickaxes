@@ -29,6 +29,8 @@ public class Items {
         COAL_PICK = CoalPickaxeItem.register(COAL_PICK_NAME, () -> new CoalPickaxeItem(baseProperties(COAL_PICK_NAME)
                 .arch$tab(CreativeTabs.PICKAXES_TAB)
                 .pickaxe(Materials.COAL, 5, -3)));
+
+        ITEMS.register();
     }
 
     private static RegistrySupplier<Item> registerItem(String name, Supplier<Item> item) {

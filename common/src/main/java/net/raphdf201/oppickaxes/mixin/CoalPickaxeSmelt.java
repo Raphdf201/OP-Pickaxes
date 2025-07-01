@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.raphdf201.oppickaxes.items.CoalPickaxeItem;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -25,11 +26,9 @@ import java.util.Optional;
 @Mixin(Block.class)
 public class CoalPickaxeSmelt {
     @Inject(method = "playerDestroy", at = @At("HEAD"), cancellable = true)
-    private void injectAfterBreak(Level level, Player player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack tool, CallbackInfo ci) {
+    private void injectAfterBreak(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool, CallbackInfo ci) {
         if (!level.isClientSide() && tool.getItem() instanceof CoalPickaxeItem) {
             Block block = state.getBlock();
-
-            if (block == Blocks.NETHER_QUARTZ_ORE) return;
 
             ItemStack input = new ItemStack(block.asItem());
             SingleRecipeInput container = new SingleRecipeInput(input);
@@ -50,7 +49,8 @@ public class CoalPickaxeSmelt {
                     );
                     level.addFreshEntity(entity);
 
-                    Block.dropResources(state, level, pos);
+                    // Block.dropResources(state, level, pos); // Original drop (not smelted)
+
                     ci.cancel();
                 }
             }

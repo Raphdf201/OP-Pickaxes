@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ddd",
+    " s ",
+    " s "
+  ],
+  "key": {
+    "d": "minecraft:dirt",
+    "s": "minecraft:stick"
+  },
+  "result": {
+    "id": "oppickaxes:dirt_pick",
+    "count": 1
+  }
+}

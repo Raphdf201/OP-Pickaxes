@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "oppickaxes",
+  "version": "${version}",
+  "name": "OP pickaxes",
+  "description": "",
+  "authors": [
+    "Raphdf201"
+  ],
+  "contact": {
+    "homepage": "mods.raphdf201.net"
+  },
+  "license": "unlicense",
+  "icon": "assets/oppickaxes/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.raphdf201.oppickaxes.fabric.OppickaxesFabric"
+    ],
+    "client": [
+      "net.raphdf201.oppickaxes.fabric.client.OppickaxesFabricClient"
+    ]
+  },
+  "mixins": [
+    "oppickaxes.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "minecraft": "~1.21.5",
+    "java": ">=21",
+    "architectury": ">=16.1.4",
+    "fabric-api": "*"
+  }
+}

@@ -1,4 +1,4 @@
-name: Build cod
+name: Build code
 
 on: push
 
@@ -19,5 +19,5 @@ jobs:
           cache-disabled: false
       - name: make gradlew executable
         run: chmod +x ./gradlew
-      - name: build code and javadoc
+      - name: build
         run: ./gradlew build

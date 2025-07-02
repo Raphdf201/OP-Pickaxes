@@ -1,6 +1,6 @@
 plugins {
     id 'dev.architectury.loom' version '1.10-SNAPSHOT' apply false
-    id 'architectury-plugin' version '3.4-SNAPSHOT'
+    id 'architectury-plugin' version '3.4.161'
     id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
 }
 
@@ -27,7 +27,7 @@ subprojects {
 
     base {
         // Set up a suffixed format for the mod jar names, e.g. `example-fabric`.
-        archivesName = "${rootProject.archives_name}-${project.name}"
+        archivesName = "${rootProject.archives_name}-${project.name}+${rootProject.minecraft_version}"
     }
 
     repositories {
@@ -42,7 +42,7 @@ subprojects {
         minecraft "net.minecraft:minecraft:${rootProject.minecraft_version}"
         mappings loom.layered() {
             officialMojangMappings()
-            parchment("org.parchmentmc.data:parchment-${rootProject.minecraft_version}:${rootProject.parchment_version}@zip")
+            // parchment("org.parchmentmc.data:parchment-${rootProject.minecraft_version}:${rootProject.parchment_version}@zip") TODO : update mappings
         }
     }
 

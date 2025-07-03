@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.PickaxeItem;
 import net.raphdf201.oppickaxes.CreativeTabs;
 
 import java.util.function.Supplier;
@@ -22,13 +23,15 @@ public class Items {
     public static final String COAL_PICK_NAME = "coal_pick";
 
     public static void init() {
-        DIRT_PICK = registerItem(DIRT_PICK_NAME, () -> new Item(baseProperties(DIRT_PICK_NAME)
-                .arch$tab(CreativeTabs.PICKAXES_TAB)
-                .pickaxe(Materials.DIRT, 0, Integer.MIN_VALUE)));
+        DIRT_PICK = registerItem(DIRT_PICK_NAME, () -> new PickaxeItem(
+                Materials.DIRT,
+                0,
+                Integer.MIN_VALUE,
+                baseProperties(DIRT_PICK_NAME)
+                .arch$tab(CreativeTabs.PICKAXES_TAB)));
 
         COAL_PICK = CoalPickaxeItem.register(COAL_PICK_NAME, () -> new CoalPickaxeItem(baseProperties(COAL_PICK_NAME)
-                .arch$tab(CreativeTabs.PICKAXES_TAB)
-                .pickaxe(Materials.COAL, 5, -3)));
+                .arch$tab(CreativeTabs.PICKAXES_TAB)));
 
         ITEMS.register();
     }

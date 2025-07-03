@@ -9,6 +9,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -24,13 +25,13 @@ import java.util.function.Supplier;
 import static net.raphdf201.oppickaxes.Oppickaxes.MOD_ID;
 import static net.raphdf201.oppickaxes.items.Items.ITEMS;
 
-public class CoalPickaxeItem extends Item {
+public class CoalPickaxeItem extends PickaxeItem {
     private static final SimpleParticleType PARTICLE = ParticleTypes.FLAME;
     private static final int COUNT = 5;
     private static final double SPEED = 0.5;
 
     public CoalPickaxeItem(Item.Properties properties) {
-        super(properties);
+        super(Materials.COAL, 5, -3, properties);
     }
 
     @Override

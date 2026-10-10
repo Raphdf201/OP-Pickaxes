@@ -3,7 +3,7 @@ package net.raphdf201.oppickaxes.items;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
@@ -60,6 +60,6 @@ public class CoalPickaxeItem extends Item {
     }
 
     public static RegistrySupplier<CoalPickaxeItem> register(String name, Supplier<CoalPickaxeItem> item) {
-        return ITEMS.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, name), item);
+        return ITEMS.register(Identifier.fromNamespaceAndPath(MOD_ID, name), item);
     }
 }

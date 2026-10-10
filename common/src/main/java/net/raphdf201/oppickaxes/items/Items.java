@@ -4,7 +4,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.raphdf201.oppickaxes.CreativeTabs;
 
@@ -34,10 +34,10 @@ public class Items {
     }
 
     private static RegistrySupplier<Item> registerItem(String name, Supplier<Item> item) {
-        return ITEMS.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, name), item);
+        return ITEMS.register(Identifier.fromNamespaceAndPath(MOD_ID, name), item);
     }
 
     private static Item.Properties baseProperties(String name) {
-        return new Item.Properties().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID, name)));
+        return new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MOD_ID, name)));
     }
 }

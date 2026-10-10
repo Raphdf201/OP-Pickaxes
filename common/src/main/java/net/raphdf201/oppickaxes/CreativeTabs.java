@@ -19,7 +19,7 @@ public class CreativeTabs {
     public static void init() {
         PICKAXES_TAB = TABS.register(PICKAXES_TAB_NAME, () -> CreativeTabRegistry.create(
                 Component.translatable("category." + PICKAXES_TAB_NAME),
-                () -> new ItemStack(Items.DIRT_PICK)));
+                () -> new ItemStack(Items.DIRT_PICK.get())));
 
         TABS.register();
     }

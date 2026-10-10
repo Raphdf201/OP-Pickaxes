@@ -2,6 +2,7 @@ package net.raphdf201.oppickaxes.mixin;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -11,7 +12,6 @@ import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.raphdf201.oppickaxes.items.CoalPickaxeItem;
@@ -25,8 +25,23 @@ import java.util.Optional;
 
 @Mixin(Block.class)
 public class CoalPickaxeSmelt {
-    @Inject(method = "playerDestroy", at = @At("HEAD"), cancellable = true)
-    private void injectAfterBreak(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool, CallbackInfo ci) {
+    // Minecraft 26.1 and 26.2 declare playerDestroy(Level, Player, ...)
+    @Inject(
+            method = "playerDestroy(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/world/item/ItemStack;)V",
+            at = @At("HEAD"), cancellable = true, require = 0)
+    private void injectAfterBreakLegacy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool, CallbackInfo ci) {
+        smeltInstead(level, pos, state, tool, ci);
+    }
+
+    // Minecraft 26.3 narrowed the parameters to playerDestroy(ServerLevel, ServerPlayer, ...)
+    @Inject(
+            method = "playerDestroy(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/world/item/ItemStack;)V",
+            at = @At("HEAD"), cancellable = true, require = 0)
+    private void injectAfterBreak(ServerLevel level, ServerPlayer player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool, CallbackInfo ci) {
+        smeltInstead(level, pos, state, tool, ci);
+    }
+
+    private static void smeltInstead(Level level, BlockPos pos, BlockState state, ItemStack tool, CallbackInfo ci) {
         if (!level.isClientSide() && tool.getItem() instanceof CoalPickaxeItem) {
             Block block = state.getBlock();
 
@@ -37,7 +52,7 @@ public class CoalPickaxeSmelt {
                     .getRecipeFor(RecipeType.SMELTING, container, level);
 
             if (recipeOpt.isPresent()) {
-                ItemStack result = recipeOpt.get().value().assemble(container, level.registryAccess());
+                ItemStack result = recipeOpt.get().value().assemble(container);
 
                 if (!result.isEmpty()) {
                     ItemEntity entity = new ItemEntity(

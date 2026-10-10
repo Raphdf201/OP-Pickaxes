@@ -46,7 +46,7 @@ public class CoalPickaxeItem extends Item {
     }
 
     private void spawnParticles(Level level, BlockPos pos) {
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             ((ServerLevel) level).sendParticles(
                     PARTICLE,
                     pos.getX() + 0.5,
